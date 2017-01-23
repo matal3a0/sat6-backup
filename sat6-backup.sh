@@ -28,7 +28,7 @@ case "$MODE" in
 			echo "Couldn't find last backup dir, aborting!" | tee -a $LOGFILE
 			exit 2
 		else
-			$BACKUPBIN --incremental $BACKUPDIR/$LASTBACKUPDIR $BACKUPDIR/sat6-backup-$TODAY-incr 2>&1 | tee -a $LOGFILE 2>&1
+			$BACKUPBIN --incremental $LASTBACKUPDIR $BACKUPDIR/sat6-backup-$TODAY-incr 2>&1 | tee -a $LOGFILE 2>&1
 		fi
 		;;
 	clean)
