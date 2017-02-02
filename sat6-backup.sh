@@ -7,7 +7,7 @@ BACKUPBIN="/bin/katello-backup" # Path to katello-backup
 TODAY=$(date +%y%m%d)
 YESTERDAY=$(date --date=yesterday +%y%m%d)
 KEEP=7				# Number of days to keep old backups
-LOGDIR="$SCRIPTDIR/log"		
+LOGDIR="/var/log"		
 LOGFILE="$LOGDIR/sat6-backup.log"
 MODE=$1
 
