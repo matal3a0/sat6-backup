@@ -24,11 +24,12 @@ case "$MODE" in
 		# Incremental
 		echo "Running incremental backup" | tee -a $LOGFILE
 		LASTBACKUPDIR=$(ls -d $BACKUPDIR/sat6-backup* | tail -n 1)
+		echo "Last backupdir: $LASTBACKUPDIR"
 		if [ -z "$LASTBACKUPDIR" ]; then
 			echo "Couldn't find last backup dir, aborting!" | tee -a $LOGFILE
 			exit 2
 		else
-			$BACKUPBIN --incremental $LASTBACKUPDIR $BACKUPDIR/sat6-backup-$TODAY-incr 2>&1 | tee -a $LOGFILE 2>&1
+			$BACKUPBIN --incremental $LASTBACKUPDIR $BACKUPDIR/sat6-backup-$TODAY-incr 2>&1 | tee -a $LOGFILE
 		fi
 		;;
 	clean)
