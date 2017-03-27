@@ -13,6 +13,12 @@ MODE=$1
 
 date "+%F %T" | tee -a $LOGFILE 
 
+# Check mountpoint
+if ! grep -qs $BACKUPDIR /proc/mounts; then
+	echo "Backup directory $BACKUPDIR not mounted!"
+	exit 1
+fi
+
 case "$MODE" in
 	full)
 		# Full backup
