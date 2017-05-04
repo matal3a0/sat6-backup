@@ -41,7 +41,7 @@ case "$MODE" in
 	clean)
 		# Clean out old backups
 		echo "Cleaning old backups" | tee -a $LOGFILE
-		find $BACKUPDIR -maxdepth 1 -name "sat6-backup-*" -mtime +$KEEP -print0 | xargs -0 rm -rf 2>&1 | tee -a $LOGFILE
+		find $BACKUPDIR -name "katello-backup-*" -mtime +$KEEP -print -prune -exec rm -rf {} \; 2>&1 | tee -a $LOGFILE
 		;;
 	*)
 		echo "Usage: $0 {full|incr|clean}"
